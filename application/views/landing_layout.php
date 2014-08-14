@@ -5,10 +5,9 @@
 	<style type="text/css">
 		body {
 	      text-align: center;
-	      /*background: url("http://dash.ga.co/assets/anna-bg.png");*/
-	      background: url("/jmiconnect/assets/images/bg.png");
+	      background: url("/jmiconnect/assets/images/image.jpg");
 	      background-size: cover;
-	      background-position: center;
+	      background-position: top center;
 	      color: white;
 	      font-family: helvetica;
 	      height: 100%;
