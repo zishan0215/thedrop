@@ -23,22 +23,27 @@ class User extends User_Controller {
 	}
 
 	public function login() {
-		if ($this->user_m->loggedin() == TRUE ) echo "Logged in";
 		$this->user_m->loggedin() == FALSE || redirect('user/');
 		$rules = $this->user_m->rules;
     	$this->form_validation->set_rules($rules);
-    	//echo $this->user_m->hash('zishan');
-    	if ($this->form_validation->run() == TRUE) {
-    	//if($this->input->post('login')) {
-    		var_dump($this->input->post('email'));
-    		if($this->user_m->login() == TRUE) {
-    			redirect('user/');
-    		} else {
-    			$this->session->set_flashdata('error', 'That email/password combination does not exist');
-    			redirect('user/login', 'refresh');
-    		}
-    	}
-		$this->load->view('landing_layout');
+	    if($this->input->post('submit')) {
+	    	if ($this->form_validation->run() == TRUE) {
+	    		var_dump($this->input->post('email'));
+	    		if($this->user_m->login() == TRUE) {
+	    			redirect('user/');
+	    		} else {
+	    			$this->session->set_flashdata('error', 'That email/password combination does not exist');
+	    			//$this->session->set_userdata(array('error' => 1));
+	    			redirect('user/login?error=1', 'refresh');
+	    		}
+	    	} else {
+	    		$this->data['error'] = 'Incorrect input. Please try again';
+	    	}
+	    }
+		if($this->input->get('error') == 1) {
+			$this->data['error'] = 'Incorrect email/password combination. Please try again';
+		}
+		$this->load->view('landing_layout', $this->data);
 	}
 
 	public function logout() {
@@ -46,6 +51,3 @@ class User extends User_Controller {
 		redirect('user/');
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

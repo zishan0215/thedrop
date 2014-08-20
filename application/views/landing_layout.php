@@ -15,6 +15,11 @@
 				<input type="password" placeholder="Password" name="password">
 				<input type="submit" class="btn" name="submit" value="Login">
 			</form>
+			<?php 
+				if(isset($error)) {
+					echo "<br><p><span>$error</span></p>";
+				}
+			?>
 		</div>
 	</header>
 </body>
