@@ -1,33 +1,33 @@
 <?php
-class User_m extends MY_Model {
-	protected $_table_name = 'users';
+class Admin_m extends MY_Model {
+	protected $_table_name = 'admin';
 	protected $_primary_key = 'id';
 	protected $_primary_filter = 'intval';
-	protected $_order_by = 'user_name';
+	protected $_order_by = 'name';
 	public $rules = array(
 		'email' => array(
-			'field' => 'email', 
-			'label' => 'Email', 
+			'field' => 'email',
+			'label' => 'Email',
 			'rules' => 'trim|required'
-		), 
+		),
 		'password' => array(
-			'field' => 'password', 
-			'label' => 'Password', 
+			'field' => 'password',
+			'label' => 'Password',
 			'rules' => 'trim|required'
 		)
 	);
 
 	public function login() {
 		$user = $this->get_by(array(
-			'user_email' => $this->input->post('email'),
-			'user_password' => $this->hash($this->input->post('password')),
+			'email' => $this->input->post('email'),
+			'password' => $this->hash($this->input->post('password')),
 		), TRUE);
 		//var_dump($user);
 		if (count($user)) {
 			// Log in user
 			$data = array(
-				'name' => $user->user_name,
-				'id' => $user->user_id,
+				'name' => $user->name,
+				'id' => $user->id,
 				'loggedin' => TRUE,
 				'loggedin_type' => 0
 			);

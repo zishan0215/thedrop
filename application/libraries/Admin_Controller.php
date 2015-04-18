@@ -1,23 +1,23 @@
 <?php
-class User_Controller extends MY_Controller
+class Admin_Controller extends MY_Controller
 {
 	function __construct() {
 		parent::__construct();
-		$this->data['meta_title'] = 'Jamia Connect';
+		$this->data['meta_title'] = 'The Drop';
 		$this->load->library('session');
-		$this->load->model('user_m');
+		$this->load->model('admin_m');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
 		// Login check
 		$exception_uris = array(
-			'user/login',
-			'user/logout',
-			'global'
+			'admin/login',
+			'admin/logout',
+			'world'
 		);
 		if (in_array(uri_string(), $exception_uris) == FALSE) {
-			if ($this->user_m->loggedin() == FALSE) {
-				redirect('user/login');
+			if ($this->admin_m->loggedin() == FALSE) {
+				redirect('admin/login');
 			}
 		}
 	}

@@ -1,3 +1,5 @@
+</head>
+
 <body class="no-sidebar">
 
   <!-- Header -->
@@ -10,29 +12,11 @@
         <!-- Nav -->
           <nav id="nav">
             <ul>
-              <li><a href="/thedrop/">Home</a></li>
-              <li>
-                <a href="">Dropdown</a>
-                <ul>
-                  <li><a href="#">Lorem ipsum dolor</a></li>
-                  <li><a href="#">Magna phasellus</a></li>
-                  <li><a href="#">Etiam dolore nisl</a></li>
-                  <li>
-                    <a href="">Phasellus consequat</a>
-                    <ul>
-                      <li><a href="#">Magna phasellus</a></li>
-                      <li><a href="#">Etiam dolore nisl</a></li>
-                      <li><a href="#">Veroeros feugiat</a></li>
-                      <li><a href="#">Nisl sed aliquam</a></li>
-                      <li><a href="#">Dolore adipiscing</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Veroeros feugiat</a></li>
-                </ul>
-              </li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="left-sidebar.html">Left Sidebar</a></li>
               <li><a href="right-sidebar.html">Right Sidebar</a></li>
               <li class="current"><a href="/thedrop/index.php/complaints">Complaints</a></li>
+              <li><a href="/thedrop/index.php/complaints/urgent">Urgent Complaint</a></li>
             </ul>
           </nav>
 

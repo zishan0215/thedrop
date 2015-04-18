@@ -6,6 +6,11 @@ class Complaints extends World_Controller {
     $this->load->model('complaints_m');
     $data['complaints'] = $this->complaints_m->get();
     $data['new_complaint'] = $this->input->get('add');
+    $data['total'] = $this->complaints_m->total_count();
+    $data['res'] = $this->complaints_m->res_count();
+    $data['ures'] = $this->complaints_m->ures_count();
+    //echo $data['total'] . ' - ' . $data['res'] . ' - ' . $data['ures'];
+    print_r($data['total']);
     $this->load->view('world/world_header', $data);
 		$this->load->view('world/complaints');
     $this->load->view('world/world_footer');
@@ -21,8 +26,8 @@ class Complaints extends World_Controller {
     // $resp_json = file_get_contents($url);
     // $resp = json_decode($resp_json, true);
     // if($resp['status'] == 'OK') {
-    //   $lati = $resp['results'][0]['geometry']['location']['lat'];
-    //   $longi = $resp['results'][0]['geometry']['location']['lng'];
+    //   $data['lati'] = $resp['results'][0]['geometry']['location']['lat'];
+    //   $data['longi'] = $resp['results'][0]['geometry']['location']['lng'];
     // }
     $this->load->view('world/world_header', $data);
 		$this->load->view('world/complaints_view');
@@ -43,8 +48,16 @@ class Complaints extends World_Controller {
     $data['address'] = $this->input->post('address');
     $data['area'] = $this->input->post('area');
     $data['description'] = $this->input->post('description');
-    $this->complaints_m->add_complaint($data);
-    header('Location: /thedrop/index.php/complaints?add=1');
+    $id = $this->complaints_m->add_complaint($data);
+    header('Location: /thedrop/index.php/complaints?add='.$id);
   }
 
+  public function urgent() {
+    $this->load->model('complaints_m');
+    $data['complaints'] = $this->complaints_m->get_urgent();
+    $data['new_complaint'] = $this->input->post('new_urg');
+    $this->load->view('world/world_header', $data);
+		$this->load->view('world/urgent');
+    $this->load->view('world/world_footer');
+  }
 }

@@ -1,3 +1,5 @@
+</head>
+
 <?php $c = $complaint[0]; ?>
 <body class="no-sidebar">
 
@@ -11,29 +13,11 @@
         <!-- Nav -->
           <nav id="nav">
             <ul>
-              <li><a href="/thedrop/">Home</a></li>
-              <li>
-                <a href="">Dropdown</a>
-                <ul>
-                  <li><a href="#">Lorem ipsum dolor</a></li>
-                  <li><a href="#">Magna phasellus</a></li>
-                  <li><a href="#">Etiam dolore nisl</a></li>
-                  <li>
-                    <a href="">Phasellus consequat</a>
-                    <ul>
-                      <li><a href="#">Magna phasellus</a></li>
-                      <li><a href="#">Etiam dolore nisl</a></li>
-                      <li><a href="#">Veroeros feugiat</a></li>
-                      <li><a href="#">Nisl sed aliquam</a></li>
-                      <li><a href="#">Dolore adipiscing</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Veroeros feugiat</a></li>
-                </ul>
-              </li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="left-sidebar.html">Left Sidebar</a></li>
               <li><a href="right-sidebar.html">Right Sidebar</a></li>
               <li class="current"><a href="/thedrop/index.php/complaints">Complaints</a></li>
+              <li><a href="/thedrop/index.php/complaints/urgent">Urgent Complaint</a></li>
             </ul>
           </nav>
 
@@ -66,6 +50,8 @@
                 </table>
               </div>
               <div class="col-md-6">
+                <!-- <?php $offx=$lati/40; $offy=$longi/40; ?> -->
+                <!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo urlencode($c->area) ?>&zoom=13&size=500x360&markers=color:red%7Clabel:S%7C<?php echo $c->area ?>&path=color:0x00000000|weight:5|fillcolor:0xFFFF0033|<?php echo $longi - $offx ?>,<?php echo $lati - $offy ?>|<?php echo $longi - $offx ?>,<?php echo $lati + $offy ?>|<?php echo $longi + $offx ?>,<?php echo $lati - $offy ?>|<?php echo $longi + $offx ?>,<?php echo $lati + $offy ?>" alt="" /> -->
                 <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo urlencode($c->area) ?>&zoom=13&size=500x360&markers=color:red%7Clabel:S%7C<?php echo $c->area ?>" alt="" />
               </div>
             </div>
