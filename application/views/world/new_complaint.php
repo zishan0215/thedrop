@@ -1,4 +1,3 @@
-<?php $c = $complaint[0]; ?>
 <body class="no-sidebar">
 
   <!-- Header -->
@@ -46,28 +45,23 @@
 
         <!-- Content -->
           <article class="box post">
+            <!-- <a href="#" class="image featured"><img src="/thedrop/assets/images/pic01.jpg" alt="" /></a> -->
             <header>
               <div class="center-block">
                 <h2>Review Complaint</h2>
               </div>
             </header>
-            <div class="row">
-              <div class="col-md-6">
+            <div class="center-block">
+              <form method="post" action="/thedrop/index.php/complaints/add_complaint">
                 <table class="table">
-                  <tr><td>Complaint No.</td><td><?php echo $c->cid ?></td></tr>
-                  <tr></tr><tr><td>Filed by </td><td><?php echo $c->cname ?></td></tr>
-                  <tr><td>Mobile No. </td><td><?php echo $c->mobile ?></td></tr>
-                  <tr><td>Address</td><td><?php echo $c->address ?></td></tr>
-                  <tr><td>Problem area</td><td><?php echo $c->area ?></td></tr>
-                  <tr><td>Problem Description</td><td><?php echo $c->description ?></td></tr>
-                  <tr><td>Auhority</td><td><?php echo $c->authority ?></td></tr>
-                  <tr><td>Status</td><td><?php echo $c->status ?></td></tr>
-                  <tr></tr><tr><td>Filed on</td><td><?php echo $c->timestamp ?></td></tr>
+                  <tr><td>Full Name* </td><td><input type="text" name="cname"></td></tr>
+                  <tr><td>Mobile No. </td><td><input type="text" name="mobile"></td></tr>
+                  <tr><td>Address</td><td><input type="text" name="address"></td></tr>
+                  <tr><td>Area Name*</td><td><input type="text" name="area"></td></tr>
+                  <tr><td>Problem Description*</td><td><input type="text" name="description"></td></tr>
                 </table>
-              </div>
-              <div class="col-md-6">
-                <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo urlencode($c->area) ?>&zoom=13&size=500x360&markers=color:red%7Clabel:S%7C<?php echo $c->area ?>" alt="" />
-              </div>
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
             </div>
           </article>
 
