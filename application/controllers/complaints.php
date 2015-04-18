@@ -9,8 +9,7 @@ class Complaints extends World_Controller {
     $data['total'] = $this->complaints_m->total_count();
     $data['res'] = $this->complaints_m->res_count();
     $data['ures'] = $this->complaints_m->ures_count();
-    //echo $data['total'] . ' - ' . $data['res'] . ' - ' . $data['ures'];
-    print_r($data['total']);
+		//echo $data['total'] . ' - ' . $data['res'] . ' - ' . $data['ures'];
     $this->load->view('world/world_header', $data);
 		$this->load->view('world/complaints');
     $this->load->view('world/world_footer');
@@ -56,8 +55,18 @@ class Complaints extends World_Controller {
     $this->load->model('complaints_m');
     $data['complaints'] = $this->complaints_m->get_urgent();
     $data['new_complaint'] = $this->input->post('new_urg');
-    $this->load->view('world/world_header', $data);
+		$data['add'] = $this->input->get('add');
+		$this->load->view('world/world_header', $data);
 		$this->load->view('world/urgent');
     $this->load->view('world/world_footer');
   }
+
+	public function add_urgent() {
+		$this->load->model('urgent_m');
+		$data['cname'] = $this->input->post('cname');
+		$data['mobile'] = $this->input->post('mobile');
+		$data['area'] = $this->input->post('area');
+		$this->urgent_m->insert($data);
+		header('Location: /thedrop/index.php/complaints/urgent?add=1');
+	}
 }

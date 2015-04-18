@@ -38,4 +38,18 @@ class Complaints_m extends MY_Model {
     return $q->result();
   }
 
+  public function get_new() {
+    $q = $this->db->query("select * from complaints where status = 'Pending'");
+    return $q->result();
+  }
+
+  public function get_complaint($id) {
+    $q = $this->db->query("select * from complaints where cid = $id");
+    return $q->result()[0];
+  }
+
+  public function update_action($data) {
+    $q = $this->db->query("update complaints set authority='{$data['authority']}', status='{$data['status']}' where cid={$data['cid']}");
+  }
+
 }

@@ -16,6 +16,7 @@ class Admin_m extends MY_Model {
 			'rules' => 'trim|required'
 		)
 	);
+	
 
 	public function login() {
 		$user = $this->get_by(array(

@@ -31,6 +31,7 @@
           <article class="box post">
             <!-- <a href="#" class="image featured"><img src="/thedrop/assets/images/pic01.jpg" alt="" /></a> -->
             <header>
+              <?php if($add) { ?><p class="bg-success text-success ack">Your complaint has been registered. Urgent response team on its way!</p><?php } ?>
               <div class="center-block">
                 <h2>Urgent Complaint</h2>
                 <h4>For broken/leaking pipes</h4>
@@ -61,6 +62,7 @@
                   <th>Location</th>
                   <th>Status</th>
                   <th>Authority</th>
+                  <th>View</th>
                 </tr>
                 <?php
                   foreach($complaints as $c) {
@@ -73,7 +75,7 @@
                     echo "<td>";
                   ?>
                       <form method="post" action="/thedrop/index.php/complaints/view">
-                        <input type="hidden" name="cid" value="<?php echo $c->cid ?>">
+                        <input type="hidden" name="cid" value="<?php echo $c->uid ?>">
                         <button class="btn btn-default" type="submit">View</button>
                       </form>
                   <?php

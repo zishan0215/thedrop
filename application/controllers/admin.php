@@ -3,9 +3,70 @@
 class Admin extends Admin_Controller {
 
 	public function index() {
-		echo $this->admin_m->hash('zishan');
-    $this->load->view('admin/admin_header');
-		$this->load->view('admin/main_layout');
+		$this->load->model('complaints_m');
+		$this->load->model('urgent_m');
+		$data['name'] = $this->session->userdata('name');
+		$data['ures'] = $this->complaints_m->ures_count();
+		$data['urgent'] = $this->urgent_m->urgent_count();
+		$this->load->view('admin/admin_header',$data);
+		$this->load->view('admin/index');
+		$this->load->view('admin/admin_footer');
+	}
+
+	public function new_complaints() {
+		$this->load->model('complaints_m');
+		$data['name'] = $this->session->userdata('name');
+		$data['new'] = $this->complaints_m->get_new();
+		$this->load->view('admin/admin_header', $data);
+		$this->load->view('admin/new_complaints');
+		$this->load->view('admin/admin_footer');
+	}
+
+	public function new_urgent() {
+		$this->load->model('urgent_m');
+		$data['name'] = $this->session->userdata('name');
+		$data['new'] = $this->urgent_m->get_new();
+		$this->load->view('admin/admin_header', $data);
+		$this->load->view('admin/new_urgent');
+		$this->load->view('admin/admin_footer');
+	}
+
+	public function action_urgent() {
+		$this->load->model('urgent_m');
+		$data['name'] = $this->session->userdata('name');
+		$data['id'] = $this->input->post('uid');
+		$data['complaint'] = $this->urgent_m->get_complaint($data['id']);
+		$this->load->view('admin/admin_header', $data);
+		$this->load->view('admin/action_urgent');
+		$this->load->view('admin/admin_footer');
+	}
+
+	public function update_urgent() {
+		$this->load->model('urgent_m');
+		$data['uid'] = $this->input->post('uid');
+		$data['authority'] = $this->input->post('authority');
+		$data['status'] = $this->input->post('status');
+		$this->urgent_m->update_urgent($data);
+		header('Location:/thedrop/index.php/admin');
+	}
+
+	public function action_complaint() {
+		$this->load->model('complaints_m');
+		$data['name'] = $this->session->userdata('name');
+		$data['id'] = $this->input->post('cid');
+		$data['complaint'] = $this->complaints_m->get_complaint($data['id']);
+		$this->load->view('admin/admin_header', $data);
+		$this->load->view('admin/action_complaint');
+		$this->load->view('admin/admin_footer');
+	}
+
+	public function update_action() {
+		$this->load->model('complaints_m');
+		$data['cid'] = $this->input->post('cid');
+		$data['authority'] = $this->input->post('authority');
+		$data['status'] = $this->input->post('status');
+		$this->complaints_m->update_action($data);
+		header('Location:/thedrop/index.php/admin');
 	}
 
 	public function login() {
@@ -28,7 +89,7 @@ class Admin extends Admin_Controller {
 		if($this->input->get('error') == 1) {
 			$this->data['error'] = 'Incorrect email/password combination. Please try again';
 		}
-		$this->load->view('landing_layout', $this->data);
+		$this->load->view('admin/login', $this->data);
 	}
 
 	public function logout() {
