@@ -11,8 +11,9 @@ class User_Controller extends MY_Controller
 
 		// Login check
 		$exception_uris = array(
-			'user/login', 
-			'user/logout'
+			'user/login',
+			'user/logout',
+			'global'
 		);
 		if (in_array(uri_string(), $exception_uris) == FALSE) {
 			if ($this->user_m->loggedin() == FALSE) {
