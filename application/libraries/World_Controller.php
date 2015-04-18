@@ -5,7 +5,7 @@ class World_Controller extends MY_Controller
 		parent::__construct();
 		$this->data['meta_title'] = 'The Drop';
 		$this->load->library('session');
-		$this->load->model('global_m');
+		$this->load->model('world_m');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
