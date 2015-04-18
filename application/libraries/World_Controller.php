@@ -1,5 +1,5 @@
 <?php
-class Global_Controller extends MY_Controller
+class World_Controller extends MY_Controller
 {
 	function __construct() {
 		parent::__construct();
