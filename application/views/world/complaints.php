@@ -1,16 +1,16 @@
-	<body class="left-sidebar">
+	<body class="no-sidebar">
 
 		<!-- Header -->
 			<div id="header-wrapper">
 				<div id="header">
 
 					<!-- Logo -->
-						<h1><a href="index.html">Dopetrope</a></h1>
+						<h1><a href="/thedrop/">The Drop</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="/thedrop/">Home</a></li>
 								<li>
 									<a href="">Dropdown</a>
 									<ul>
@@ -30,9 +30,9 @@
 										<li><a href="#">Veroeros feugiat</a></li>
 									</ul>
 								</li>
-								<li class="current"><a href="left-sidebar.html">Left Sidebar</a></li>
+								<li><a href="left-sidebar.html">Left Sidebar</a></li>
 								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="no-sidebar.html">No Sidebar</a></li>
+								<li class="current"><a href="/thedrop/index.php/complaints">Complaints</a></li>
 							</ul>
 						</nav>
 
@@ -42,152 +42,87 @@
 		<!-- Main -->
 			<div id="main-wrapper">
 				<div class="container">
-					<div class="row">
-						<div class="4u">
 
-							<!-- Sidebar -->
-								<section class="box">
-									<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
-									<header>
-										<h3>Sed etiam lorem nulla</h3>
-									</header>
-									<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-									<footer>
-										<a href="#" class="button alt">Magna sed taciti</a>
-									</footer>
-								</section>
-								<section class="box">
-									<header>
-										<h3>Feugiat consequat</h3>
-									</header>
-									<p>Veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et feugiat sed lorem consequat feugiat lorem dolore.</p>
-									<ul class="divided">
-										<li><a href="#">Sed et blandit consequat sed</a></li>
-										<li><a href="#">Hendrerit tortor vitae sapien dolore</a></li>
-										<li><a href="#">Sapien id suscipit magna sed felis</a></li>
-										<li><a href="#">Aptent taciti sociosqu ad litora</a></li>
-									</ul>
-									<footer>
-										<a href="#" class="button alt">Ipsum consequat</a>
-									</footer>
-								</section>
+					<!-- Content -->
+						<article class="box post">
+							<a href="#" class="image featured"><img src="/thedrop/assets/images/pic01.jpg" alt="" /></a>
+							<header>
+								<h2>List of Complaints</h2>
+								<!-- <p>Lorem ipsum dolor sit amet feugiat</p> -->
+							</header>
+							<table class="table">
+									<tr>
+										<th>Complaint No.</th>
+										<th>Full Name</th>
+										<th>Area</th>
+										<th>Description</th>
+										<th>Status</th>
+										<th>Authority</th>
+										<th>View</th>
+									</tr>
+									<?php
+										foreach($complaints as $c) {
+											echo "<tr>";
+											echo "<td>$c->cid</td>";
+											echo "<td>$c->cname</td>";
+											echo "<td>$c->area</td>";
+											echo "<td>$c->description</td>";
+											echo "<td>$c->status</td>";
+											echo "<td>$c->authority</td>";
+											echo "<td>";
+										?>
+												<form method="post" action="/thedrop/index.php/complaints/view">
+													<input type="hidden" name="cid" value="<?php echo $c->cid ?>">
+													<button class="btn btn-default" type="submit">View</button>
+												</form>
+										<?php
+											echo "</td>";
+											echo "</tr>";
+										}
+									?>
+							</table>
+							<!-- <section>
+								<header>
+									<h3>Something else</h3>
+								</header>
+								<p>
+									Elementum odio duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
+									placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
+									eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
+									elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+									sit amet nullam consequat feugiat dolore tempus.
+									Elementum odio duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
+									placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
+									eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
+									elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor.
+								</p>
+								<p>
+									Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
+									eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
+									elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+									sit amet nullam consequat feugiat dolore tempus.
+								</p>
+							</section>
+							<section>
+								<header>
+									<h3>So in conclusion ...</h3>
+								</header>
+								<p>
+									Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
+									eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
+									elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
+									sit amet nullam consequat feugiat dolore tempus. Elementum odio duis semper risus et lectus commodo fringilla.
+									Maecenas sagittis convallis justo vel mattis.
+								</p>
+							</section> -->
+						</article>
 
-						</div>
-						<div class="8u important(collapse)">
-
-							<!-- Content -->
-								<article class="box post">
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<header>
-										<h2>Left Sidebar</h2>
-										<p>Lorem ipsum dolor sit amet feugiat</p>
-									</header>
-									<p>
-										Vestibulum scelerisque ultricies libero id hendrerit. Vivamus malesuada quam faucibus ante dignissim auctor
-										hendrerit libero placerat. Nulla facilisi. Proin aliquam felis non arcu molestie at accumsan turpis commodo.
-										Proin elementum, nibh non egestas sodales, augue quam aliquet est, id egestas diam justo adipiscing ante.
-										Pellentesque tempus nulla non urna eleifend ut ultrices nisi faucibus.
-									</p>
-									<p>
-										Praesent a dolor leo. Duis in felis in tortor lobortis volutpat et pretium tellus. Vestibulum ac ante nisl,
-										a elementum odio. Duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
-										placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-										eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-										elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-										sit amet nullam consequat feugiat dolore tempus.
-									</p>
-									<section>
-										<header>
-											<h3>Something else</h3>
-										</header>
-										<p>
-											Elementum odio duis semper risus et lectus commodo fringilla. Maecenas sagittis convallis justo vel mattis.
-											placerat, nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-											eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-											elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-											sit amet nullam consequat feugiat dolore tempus.
-										</p>
-										<p>
-											Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-											eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-											elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-											sit amet nullam consequat feugiat dolore tempus.
-										</p>
-									</section>
-									<section>
-										<header>
-											<h3>So in conclusion ...</h3>
-										</header>
-										<p>
-											Nunc diam iaculis massa, et aliquet nibh leo non nisl vitae porta lobortis, enim neque fringilla nunc,
-											eget faucibus lacus sem quis nunc suspendisse nec lectus sit amet augue rutrum vulputate ut ut mi. Aenean
-											elementum, mi sit amet porttitor lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-											sit amet nullam consequat feugiat dolore tempus. Elementum odio duis semper risus et lectus commodo fringilla.
-											Maecenas sagittis convallis justo vel mattis.
-										</p>
-									</section>
-								</article>
-
-						</div>
-					</div>
 				</div>
 			</div>
 
 		<!-- Footer -->
 			<div id="footer-wrapper">
 				<section id="footer" class="container">
-					<div class="row">
-						<div class="8u">
-							<section>
-								<header>
-									<h2>Blandit nisl adipiscing</h2>
-								</header>
-								<ul class="dates">
-									<li>
-										<span class="date">Jan <strong>27</strong></span>
-										<h3><a href="#">Lorem dolor sit amet veroeros</a></h3>
-										<p>Ipsum dolor sit amet veroeros consequat blandit ipsum phasellus lorem consequat etiam.</p>
-									</li>
-									<li>
-										<span class="date">Jan <strong>23</strong></span>
-										<h3><a href="#">Ipsum sed blandit nisl consequat</a></h3>
-										<p>Blandit phasellus lorem ipsum dolor tempor sapien tortor hendrerit adipiscing feugiat lorem.</p>
-									</li>
-									<li>
-										<span class="date">Jan <strong>15</strong></span>
-										<h3><a href="#">Magna tempus lorem feugiat</a></h3>
-										<p>Dolore consequat sed phasellus lorem sed etiam nullam dolor etiam sed amet sit consequat.</p>
-									</li>
-									<li>
-										<span class="date">Jan <strong>12</strong></span>
-										<h3><a href="#">Dolore tempus ipsum feugiat nulla</a></h3>
-										<p>Feugiat lorem dolor sed nullam tempus lorem ipsum dolor sit amet nullam consequat.</p>
-									</li>
-									<li>
-										<span class="date">Jan <strong>10</strong></span>
-										<h3><a href="#">Blandit tempus aliquam?</a></h3>
-										<p>Feugiat sed tempus blandit tempus adipiscing nisl lorem ipsum dolor sit amet dolore.</p>
-									</li>
-								</ul>
-							</section>
-						</div>
-						<div class="4u">
-							<section>
-								<header>
-									<h2>What's this all about?</h2>
-								</header>
-								<a href="#" class="image featured"><img src="images/pic10.jpg" alt="" /></a>
-								<p>
-									This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
-									<a href="http://n33.co">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It's released for free under
-									the <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for any personal or commercial project &ndash; just don't forget to credit us!
-								</p>
-								<footer>
-									<a href="#" class="button">Find out more</a>
-								</footer>
-							</section>
-						</div>
-					</div>
 					<div class="row">
 						<div class="4u">
 							<section>
@@ -258,7 +193,7 @@
 							<!-- Copyright -->
 								<div id="copyright">
 									<ul class="links">
-										<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										<li>&copy; Untitled. All rights reserved.</li>
 									</ul>
 								</div>
 

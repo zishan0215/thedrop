@@ -32,7 +32,7 @@
 								</li>
 								<li><a href="left-sidebar.html">Left Sidebar</a></li>
 								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="no-sidebar.html">No Sidebar</a></li>
+								<li><a href="/thedrop/index.php/complaints">Complaints</a></li>
 							</ul>
 						</nav>
 

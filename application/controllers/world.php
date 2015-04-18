@@ -3,7 +3,7 @@
 class World extends World_Controller {
 
 	public function index() {
-    	$this->load->view('world/world_header');
+    $this->load->view('world/world_header');
 		$this->load->view('world/index');
 	}
 
