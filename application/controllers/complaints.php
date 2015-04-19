@@ -15,6 +15,15 @@ class Complaints extends World_Controller {
     $this->load->view('world/world_footer');
 	}
 
+	public function search_complaint() {
+		$this->load->model('complaints_m');
+		$cid = $this->input->post('cid');
+		$data['c'] = $this->complaints_m->get_complaint($cid);
+		$this->load->view('world/world_header', $data);
+		$this->load->view('world/search_complaint');
+    $this->load->view('world/world_footer');
+	}
+
   public function view() {
     $this->load->model('complaints_m');
     $id = $this->input->post('cid');
@@ -68,5 +77,14 @@ class Complaints extends World_Controller {
 		$data['area'] = $this->input->post('area');
 		$this->urgent_m->insert($data);
 		header('Location: /thedrop/index.php/complaints/urgent?add=1');
+	}
+
+	public function urgent_view() {
+		$this->load->model('urgent_m');
+    $id = $this->input->post('uid');
+    $data['complaint'] = $this->urgent_m->get_by(array('uid'=>$id));
+    $this->load->view('world/world_header', $data);
+		$this->load->view('world/urgent_view');
+    $this->load->view('world/world_footer');
 	}
 }

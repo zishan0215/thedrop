@@ -13,6 +13,15 @@ class Admin extends Admin_Controller {
 		$this->load->view('admin/admin_footer');
 	}
 
+	public function get_complaints() {
+		$this->load->model('complaints_m');
+		$data['name'] = $this->session->userdata('name');
+		$data['complaints'] = $this->complaints_m->get_all();
+		$this->load->view('admin/admin_header',$data);
+		$this->load->view('admin/get_complaints');
+		$this->load->view('admin/admin_footer');
+	}
+
 	public function new_complaints() {
 		$this->load->model('complaints_m');
 		$data['name'] = $this->session->userdata('name');

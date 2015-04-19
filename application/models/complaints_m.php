@@ -38,6 +38,11 @@ class Complaints_m extends MY_Model {
     return $q->result();
   }
 
+  public function get_all() {
+    $q = $this->db->query("select * from complaints order by timestamp desc");
+    return $q->result();
+  }
+
   public function get_new() {
     $q = $this->db->query("select * from complaints where status = 'Pending'");
     return $q->result();

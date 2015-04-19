@@ -1,9 +1,3 @@
-<link href="/thedrop/assets/css/morris.css" rel="stylesheet">
-<style>
-	.panel-title {
-		display:none;
-	}
-</style>
 </head>
 
 	<body class="no-sidebar">
@@ -35,65 +29,8 @@
 
 					<!-- Content -->
 						<article class="box post">
-							<?php if($new_complaint) { ?><p class="bg-success text-success ack">Your complaint has been registered. Complaint Id: <?php echo $new_complaint ?></p><?php } ?>
-							<div class="row">
-										<div class="col-lg-3 col-md-6 left-space">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $total ?></div>
-                                        <div>Total Complaints</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-										<div class="col-lg-3 col-md-6 left-space">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $res ?></div>
-                                        <div>Complaints Resolved</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-										<div class="col-lg-3 col-md-6 left-space">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $ures ?></div>
-                                        <div>Complaints Unresolved</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
-                            </div>
-                            <div class="panel-body">
-	                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 							<header>
-								<p class="pull-right"><a href="/thedrop/index.php/complaints/new_complaint">File Complaint</a></p>
-								<h2>List of Complaints</h2><br>
-								<form class="form-inline" method="post" action="/thedrop/index.php/complaints/search_complaint">
-									<div class="form-group">
-								    <input type="text" class="form-control" name="cid" placeholder="Complaint Id">
-								  </div>
-									<button type="submit" class="btn btn-default">Search</button>
-								</form><br>
+								<h2>Search Result</h2><br>
 							</header>
 							<table class="table">
 									<tr>
@@ -106,7 +43,6 @@
 										<th>View</th>
 									</tr>
 									<?php
-										foreach($complaints as $c) {
 											echo "<tr>";
 											echo "<td>$c->cid</td>";
 											echo "<td>$c->cname</td>";
@@ -123,7 +59,7 @@
 										<?php
 											echo "</td>";
 											echo "</tr>";
-										}
+										
 									?>
 							</table>
 						</article>

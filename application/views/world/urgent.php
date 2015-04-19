@@ -74,8 +74,8 @@
                     echo "<td>$c->authority</td>";
                     echo "<td>";
                   ?>
-                      <form method="post" action="/thedrop/index.php/complaints/view">
-                        <input type="hidden" name="cid" value="<?php echo $c->uid ?>">
+                      <form method="post" action="/thedrop/index.php/complaints/urgent_view">
+                        <input type="hidden" name="uid" value="<?php echo $c->uid ?>">
                         <button class="btn btn-default" type="submit">View</button>
                       </form>
                   <?php

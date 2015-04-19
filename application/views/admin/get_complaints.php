@@ -2,10 +2,10 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li>
                         <a href="/thedrop/index.php/admin/"> Dashboard</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/thedrop/index.php/admin/get_complaints"> Complaints</a>
                     </li>
                     <li>
@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            New Complaints
+                            List of Complaints
                         </h1>
                     </div>
                 </div>
@@ -64,11 +64,10 @@
                     <th>Description</th>
                     <th>Authority</th>
                     <th>Status</th>
-                    <th>Action</th>
                   </tr>
 
                     <?php
-                      foreach($new as $n) {
+                      foreach($complaints as $n) {
                         echo "<tr>";
                         echo "<td>$n->cid</td>";
                         echo "<td>$n->cname</td>";
@@ -76,7 +75,6 @@
                         echo "<td>$n->description</td>";
                         echo "<td>$n->authority</td>";
                         echo "<td>$n->status</td>";
-                        echo '<td><form method="post" action="/thedrop/index.php/admin/action_complaint"><input type="hidden" name="cid" value="'.$n->cid.'"><button type="submit" class="btn btn-primary">Action</button</td></form>';
                         echo "</tr>";
                       }
                     ?>

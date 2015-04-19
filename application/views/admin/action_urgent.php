@@ -3,10 +3,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="/thedrop/index.php/admin/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="/thedrop/index.php/admin/"> Dashboard</a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="/thedrop/index.php/admin/get_complaints"> Complaints</a>
                     </li>
                     <li>
                         <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
@@ -74,7 +74,7 @@
                       <tr></tr>
                       <tr>
                         <th>Authority</th>
-                        <td><input type="text" name="authority"></td>
+                        <td><input type="text" name="authority" value="<?php echo $complaint->authority?>"></td>
                       </tr>
                       <tr></tr>
                       <tr>
