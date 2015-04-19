@@ -13,6 +13,29 @@ class Admin extends Admin_Controller {
 		$this->load->view('admin/admin_footer');
 	}
 
+	public function tanker() {
+		$data['name'] = $this->session->userdata('name');
+		$this->load->view('admin/admin_header',$data);
+		$this->load->view('admin/tanker');
+		$this->load->view('admin/admin_footer');
+	}
+
+	public function add_tanker() {
+		if($this->input->post('add_tanker')) {
+			$this->load->model('tanker_m');
+			$data['place'] = $this->input->post('place');
+			$data['atime'] = $this->input->post('atime');
+			$data['dtime'] = $this->input->post('dtime');
+			$data['vid'] = $this->input->post('vid');
+			$data['filling'] = $this->input->post('filling');
+			$this->tanker_m->insert_data($data);
+		}
+		$data['name'] = $this->session->userdata('name');
+		$this->load->view('admin/admin_header',$data);
+		$this->load->view('admin/add_tanker');
+		$this->load->view('admin/admin_footer');
+	}
+
 	public function get_complaints() {
 		$this->load->model('complaints_m');
 		$data['name'] = $this->session->userdata('name');

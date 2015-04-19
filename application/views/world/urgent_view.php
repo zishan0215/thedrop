@@ -13,11 +13,12 @@
         <!-- Nav -->
           <nav id="nav">
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="left-sidebar.html">Left Sidebar</a></li>
-              <li><a href="right-sidebar.html">Right Sidebar</a></li>
+              <li><a href="/thedrop/">Home</a></li>
+              <li><a href="/thedrop/index.php/projects/">Projects</a></li>
+              <li><a href="/thedrop/index.php/tanker/">Water Tanker</a></li>
               <li><a href="/thedrop/index.php/complaints">Complaints</a></li>
               <li class="current"><a href="/thedrop/index.php/complaints/urgent">Urgent Complaint</a></li>
+              <li><a href="/thedrop/index.php/forum/">Forum</a></li>
             </ul>
           </nav>
 

@@ -9,8 +9,17 @@
                       <a href="/thedrop/index.php/admin/get_complaints"> Complaints</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                      <a href="javascript:;" data-toggle="collapse" data-target="#tanker"> Tanker</a>
+                      <ul id="tanker" class="collapse">
+                          <li>
+                              <a href="/thedrop/index.php/admin/tanker">View Tankers</a>
+                          </li>
+                          <li>
+                              <a href="/thedrop/index.php/admin/add_tanker">Add Tanker</a>
+                          </li>
+                      </ul>
                     </li>
+
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
                     </li>

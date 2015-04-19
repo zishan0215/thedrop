@@ -5,11 +5,19 @@
                     <li>
                         <a href="/thedrop/index.php/admin/"> Dashboard</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/thedrop/index.php/admin/get_complaints"> Complaints</a>
                     </li>
-                    <li>
-                      <a href="/thedrop/index.php/admin/tanker"> Tanker</a>
+                    <li class="active">
+                      <a href="javascript:;" data-toggle="collapse" data-target="#tanker"> Tanker</a>
+                      <ul id="tanker" class="collapse">
+                          <li>
+                              <a href="/thedrop/index.php/admin/tanker">View Tankers</a>
+                          </li>
+                          <li>
+                              <a href="/thedrop/index.php/admin/add_tanker">Add Tanker</a>
+                          </li>
+                      </ul>
                     </li>
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -50,35 +58,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            List of Complaints
+                            List of Tankers
                         </h1>
                     </div>
                 </div>
                 <!-- /.row -->
-
-                <table class="table">
-                  <tr>
-                    <th>Complaint Id</th>
-                    <th>Filed By</th>
-                    <th>Problem Area</th>
-                    <th>Description</th>
-                    <th>Authority</th>
-                    <th>Status</th>
-                  </tr>
-
-                    <?php
-                      foreach($complaints as $n) {
-                        echo "<tr>";
-                        echo "<td>$n->cid</td>";
-                        echo "<td>$n->cname</td>";
-                        echo "<td>$n->area</td>";
-                        echo "<td>$n->description</td>";
-                        echo "<td>$n->authority</td>";
-                        echo "<td>$n->status</td>";
-                        echo "</tr>";
-                      }
-                    ?>
-                </table>
 
             </div>
             <!-- /.container-fluid -->

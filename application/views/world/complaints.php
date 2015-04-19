@@ -1,9 +1,4 @@
 <link href="/thedrop/assets/css/morris.css" rel="stylesheet">
-<style>
-	.panel-title {
-		display:none;
-	}
-</style>
 </head>
 
 	<body class="no-sidebar">
@@ -18,12 +13,13 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="/thedrop/">Home</a></li>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li class="current"><a href="/thedrop/index.php/complaints">Complaints</a></li>
-								<li><a href="/thedrop/index.php/complaints/urgent">Urgent Complaint</a></li>
-							</ul>
+	              <li><a href="/thedrop/">Home</a></li>
+	              <li><a href="/thedrop/index.php/projects/">Projects</a></li>
+	              <li><a href="/thedrop/index.php/tanker/">Water Tanker</a></li>
+	              <li class="current"><a href="/thedrop/index.php/complaints">Complaints</a></li>
+	              <li><a href="/thedrop/index.php/complaints/urgent">Urgent Complaint</a></li>
+	              <li><a href="/thedrop/index.php/forum/">Forum</a></li>
+	            </ul>
 						</nav>
 
 				</div>
@@ -32,10 +28,11 @@
 		<!-- Main -->
 			<div id="main-wrapper">
 				<div class="container">
-
 					<!-- Content -->
 						<article class="box post">
-							<?php if($new_complaint) { ?><p class="bg-success text-success ack">Your complaint has been registered. Complaint Id: <?php echo $new_complaint ?></p><?php } ?>
+							<?php if($new_complaint==-1) { ?><p class="bg-success text-success ack">Your complaint has been excalated.</p><?php } ?>
+						  <?php if($new_complaint && $new_complaint != -1) { ?><p class="bg-success text-success ack">Your complaint has been registered. Complaint Id: <?php echo $new_complaint ?></p><?php } ?>
+
 							<div class="row">
 										<div class="col-lg-3 col-md-6 left-space">
                         <div class="panel panel-yellow">

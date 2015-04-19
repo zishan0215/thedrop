@@ -53,6 +53,14 @@ class Complaints_m extends MY_Model {
     return $q->result()[0];
   }
 
+  public function increment_level($data) {
+    $q = $this->db->query("update complaints set level=level+1 where cid={$data['cid']}");
+  }
+
+  public function escalate($data) {
+    $q = $this->db->query("insert into escalate values({$data['cid']}, {$data['mobile']})");
+  }
+
   public function update_action($data) {
     $q = $this->db->query("update complaints set authority='{$data['authority']}', status='{$data['status']}' where cid={$data['cid']}");
   }

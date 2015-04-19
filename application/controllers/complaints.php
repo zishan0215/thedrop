@@ -60,6 +60,15 @@ class Complaints extends World_Controller {
     header('Location: /thedrop/index.php/complaints?add='.$id);
   }
 
+	public function escalate() {
+		$this->load->model('complaints_m');
+		$data['cid'] = $this->input->post('cid');
+		$data['mobile'] = $this->input->post('mobile');
+		$this->complaints_m->increment_level($data);
+		$this->complaints_m->escalate($data);
+		header('Location: /thedrop/index.php/complaints?add=-1');
+	}
+
   public function urgent() {
     $this->load->model('complaints_m');
     $data['complaints'] = $this->complaints_m->get_urgent();
