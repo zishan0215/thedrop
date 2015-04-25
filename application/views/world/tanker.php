@@ -40,6 +40,8 @@
 							</div>
 							<div class="tanker">
 								<image src="/thedrop/assets/images/tanker<?php echo $rid ?>.png" width="1090px">
+								<br><br>
+								<button class="btn btn-primary pull-right">Report</button>
 							</div>
 							<h1><?php echo $tinfo[0]->route ?></h1>
 							<div>

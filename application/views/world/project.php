@@ -42,6 +42,7 @@
 										<th>Start Date</th>
 										<th>End Date</th>
 										<th>Status</th>
+										<th>View</th>
 									</tr>
 									<?php
 										$i=1;
@@ -55,6 +56,7 @@
 											echo "<td>$p->start_date</td>";
 											echo "<td>$p->end_date</td>";
 											echo "<td>$p->status</td>";
+											echo "<td><button class=\"btn btn-warning\">View</button></td>";
 											echo "</tr>";
 											$i++;
 										}

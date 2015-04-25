@@ -5,19 +5,11 @@
                     <li>
                         <a href="/thedrop/index.php/admin/"> Dashboard</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/thedrop/index.php/admin/get_complaints"> Complaints</a>
                     </li>
-                    <li class="active">
-                      <a href="javascript:;" data-toggle="collapse" data-target="#tanker"> Tanker</a>
-                      <ul id="tanker" class="collapse">
-                          <li>
-                              <a href="/thedrop/index.php/admin/tanker">View Tankers</a>
-                          </li>
-                          <li>
-                              <a href="/thedrop/index.php/admin/add_tanker">Add Tanker</a>
-                          </li>
-                      </ul>
+                    <li>
+                      <a href="/thedrop/index.php/admin/tanker"> Tanker</a>
                     </li>
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -58,37 +50,35 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            List of Tankers
+                            List of Complaints
                         </h1>
-                        <!-- <h1><?php echo $tinfo[0]->route ?></h1> -->
-          							<div>
-          								<table class="table">
-          									<tr>
-          										<th>Tanker ID</th>
-          										<th>Place</th>
-          										<th>Arrival Time</th>
-          										<th>Departure Time</th>
-          										<th>Vehicle ID</th>
-          										<th>Filling Time</th>
-          									</tr>
-
-          										<?php
-          											foreach($tinfo as $t) {
-          												echo "<tr>";
-          												echo "<td>$t->tid</td>";
-          												echo "<td>$t->place</td>";
-          												echo "<td>$t->arrival</td>";
-          												echo "<td>$t->departure</td>";
-          												echo "<td>$t->vid</td>";
-          												echo "<td>$t->filling</td>";
-          												echo "</tr>";
-          											}
-          										?>
-          								</table>
-          							</div>
                     </div>
                 </div>
                 <!-- /.row -->
+
+                <table class="table">
+                  <tr>
+                    <th>Complaint Id</th>
+                    <th>Filed By</th>
+                    <th>Problem Area</th>
+                    <th>Description</th>
+                    <th>Authority</th>
+                    <th>Status</th>
+                  </tr>
+
+                    <?php
+                      foreach($esc as $n) {
+                        echo "<tr>";
+                        echo "<td>$n->cid</td>";
+                        echo "<td>$n->cname</td>";
+                        echo "<td>$n->area</td>";
+                        echo "<td>$n->description</td>";
+                        echo "<td>$n->authority</td>";
+                        echo "<td>$n->status</td>";
+                        echo "</tr>";
+                      }
+                    ?>
+                </table>
 
             </div>
             <!-- /.container-fluid -->

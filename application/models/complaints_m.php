@@ -65,4 +65,9 @@ class Complaints_m extends MY_Model {
     $q = $this->db->query("update complaints set authority='{$data['authority']}', status='{$data['status']}' where cid={$data['cid']}");
   }
 
+  public function get_esc() {
+    $q = $this->db->query("select * from escalate as e, complaints as c where e.cid = c.cid");
+    return $q->result();
+  }
+
 }

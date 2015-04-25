@@ -19,6 +19,11 @@ class Urgent_m extends MY_Model {
     return $q->result()[0]->c;
   }
 
+  public function esc_count() {
+    $q = $this->db->query("select count(*) as c from escalate");
+    return $q->result()[0]->c;
+  }
+
   public function get_complaint($id) {
     $q = $this->db->query("select * from urgent where uid = $id");
     return $q->result()[0];

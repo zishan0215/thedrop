@@ -8,13 +8,26 @@ class Admin extends Admin_Controller {
 		$data['name'] = $this->session->userdata('name');
 		$data['ures'] = $this->complaints_m->ures_count();
 		$data['urgent'] = $this->urgent_m->urgent_count();
+		$data['esc'] = $this->urgent_m->esc_count();
 		$this->load->view('admin/admin_header',$data);
 		$this->load->view('admin/index');
 		$this->load->view('admin/admin_footer');
 	}
 
-	public function tanker() {
+	public function esc_complaints() {
+		$this->load->model('complaints_m');
+		$data['esc'] = $this->complaints_m->get_esc();
 		$data['name'] = $this->session->userdata('name');
+		$this->load->view('admin/admin_header',$data);
+		$this->load->view('admin/esc_complaints');
+		$this->load->view('admin/admin_footer');
+
+	}
+
+	public function tanker() {
+		$this->load->model('tanker_m');
+		$data['name'] = $this->session->userdata('name');
+		$data['tinfo'] = $this->tanker_m->get_tanker_info();
 		$this->load->view('admin/admin_header',$data);
 		$this->load->view('admin/tanker');
 		$this->load->view('admin/admin_footer');
